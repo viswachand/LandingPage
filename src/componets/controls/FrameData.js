@@ -2,6 +2,7 @@ const tileData = [
     {
       img: 'https://media.vogue.in/wp-content/uploads/2020/10/0001-600x777.jpg',
       title: 'Breakfast',
+      
       author: 'jill111',
      
     },

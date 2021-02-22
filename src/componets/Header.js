@@ -15,7 +15,10 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import { Grid } from "@material-ui/core";
 import Controls from "../componets/controls/controls";
 import SwipeableTextMobileStepper from "../componets/controls/images";
-
+import NavBar from "../componets/Navbar";
+import Footer from '../componets/Footer';
+import ImageShowCase from "./controls/ImageFrame"
+import Body from './Body'
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -42,7 +45,12 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles((theme) => ({
+  toolbarmargin: {
+    ...theme.mixins.toolbar,
+  },
+ 
+}));
 
 export default function ElevateAppBar(props) {
   const { color, children, onClick } = props;
@@ -50,64 +58,24 @@ export default function ElevateAppBar(props) {
 
   return (
     <React.Fragment>
-    
+      <Container>
+        <div>
+          <NavBar />
+        </div>
+      <br/>
+      <hr></hr>
         
-      
-        <Container>
-        <ElevationScroll {...props}>
-          <AppBar className={classes.header}>
-            <Toolbar className={classes.toolbar}>
-              <Grid
-                
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item>
-                  <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    // onClick={handleDrawerOpen}
-                    edge="start"
-                    // className={clsx(classes.menuButton, open && classes.hide)}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                </Grid>
-                <Grid item>
-                  <div className={classes.Title}>
-                    <Typography variant="h6">STONERS STORIES</Typography>
-                  </div>
-                </Grid>
-                <Grid item>
-                  <div className={classes.user}>
-                    <IconButton color="inherit">
-                      <InstagramIcon />
-                    </IconButton>
-                    <IconButton color="inherit">
-                      <FacebookIcon />
-                    </IconButton>
-                  </div>
-                </Grid>
-              </Grid>
-            </Toolbar>
-          </AppBar>
-        </ElevationScroll>
-        <Toolbar />
-
         <SwipeableTextMobileStepper />
-
-        <Grid item xs={12}>
-          <div className={classes.text}>
-            <h2>
-              Featured in Vogue, Grazia, Harper's, People magazine and more. And
-              yes, <br></br>
-              <Typography align="center">on every bride's wishlist</Typography>
-            </h2>
-          </div>
-        </Grid>
+        <Body/>
+        <br></br>
+        <ImageShowCase/>
+        <hr style={{marginTop:100}}></hr>
+        <Footer/>
+       
+       
       </Container>
     </React.Fragment>
   );
 }
+
+

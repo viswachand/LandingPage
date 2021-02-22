@@ -44,6 +44,8 @@ export default function AdvancedGridList() {
     {
       img: "https://media.vogue.in/wp-content/uploads/2020/10/0001-600x777.jpg",
       title: "Breakfast",
+      cols: 3,
+      featured: true,
       author: "jill111",
     },
     {
@@ -96,7 +98,7 @@ export default function AdvancedGridList() {
           {tileData.map((tile) => (
             <GridListTile
               key={tile.img}
-              cols={tile.featured ? 2 : 1}
+              cols={tile.featured ? 2 : 1 }
               rows={tile.featured ? 2 : 1}
             >
               <img src={tile.img} alt={tile.title} />
